@@ -19,17 +19,15 @@ You should then see a window pop up, looking like this:
 ### 2. Select paths
 You need to specify an input path for the tja file. To do this, you can either type in the path manually or use the Browse options.
 
-<img width="655" height="137" alt="Screenshot 2025-11-03 at 04 37 46" src="https://github.com/user-attachments/assets/29c128db-388f-4588-a512-013190931c3d" />
-
 If you select **Browse File**, then simply select the tja file you wish to convert.
 
 If you select **Browse Folder**, then select the folder containing the TJA file(s). 
 
 Finally, select an output path. I recommend outputting to a new folder to contain all your converted maps.
 
-<img width="1026" height="619" alt="Screenshot 2025-11-03 at 04 36 43" src="https://github.com/user-attachments/assets/19b5eeea-0cc9-498e-b09c-6040fb63d05d" />
-
 Additionally, you can choose to keep folder structure the same as the input directory in the output folder. Not available if a single tja file is selected.
+
+<img width="1026" height="619" alt="Screenshot 2025-11-03 at 04 36 43" src="https://github.com/user-attachments/assets/19b5eeea-0cc9-498e-b09c-6040fb63d05d" />
 
 
 ### 3. Beatmap Data (optional) </ins>
