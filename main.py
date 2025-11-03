@@ -88,7 +88,7 @@ class App(ttk.Frame):
         super().__init__(master, padding=12)
         self.master.title("tja2osu GUI")
         try:
-            self.master.tk.call("tk", "scaling", 1.2)  # nicer on macOS
+            self.master.tk.call("tk", "scaling", 1.2)  
         except Exception:
             pass
 
@@ -96,11 +96,10 @@ class App(ttk.Frame):
         self.input_path = tk.StringVar()
         self.output_path = tk.StringVar()
         self.keep_structure = tk.BooleanVar(value=True)
-        self.copy_audio_fs = tk.BooleanVar(value=False)  # NEW: copy audio into folders
-
+        self.copy_audio_fs = tk.BooleanVar(value=False) 
         self.export_osz = tk.BooleanVar(value=False)
-        self.copy_audio = tk.BooleanVar(value=True)   # default ON (for .osz)
-        self.keep_osu   = tk.BooleanVar(value=False)  # default OFF
+        self.copy_audio = tk.BooleanVar(value=True)   
+        self.keep_osu   = tk.BooleanVar(value=False) 
 
         self.skip_double = tk.BooleanVar(value=True)
         self.artist = tk.StringVar()
