@@ -222,6 +222,12 @@ class App(ttk.Frame):
             is_dir = os.path.isdir(ip)
             self.chk_keep.state(["!disabled"] if is_dir else ["disabled"])
             self.chk_copy_audio_fs.state(["!disabled"] if is_dir else ["disabled"])
+            if is_dir: 
+                self.chk_export_osz.state(["!disabled"])
+            else:
+                self.export_osz.set(False)
+                self.chk_export_osz.state(["disabled"])
+                self._toggle_export_children()  
             can = bool(self.input_path.get().strip()) and bool(self.output_path.get().strip())
             if can: self.btn_convert.state(["!disabled"])
             else:   self.btn_convert.state(["disabled"])
