@@ -19,16 +19,17 @@ You should then see a window pop up, looking like this:
 ### 2. Select paths
 You need to specify an input path for the tja file. To do this, you can either type in the path manually or use the Browse options.
 
+<img width="655" height="137" alt="Screenshot 2025-11-03 at 04 37 46" src="https://github.com/user-attachments/assets/29c128db-388f-4588-a512-013190931c3d" />
+
 If you select **Browse File**, then simply select the tja file you wish to convert.
 
 If you select **Browse Folder**, then select the folder containing the TJA file(s). 
 
 Finally, select an output path. I recommend outputting to a new folder to contain all your converted maps.
 
+<img width="1026" height="619" alt="Screenshot 2025-11-03 at 04 36 43" src="https://github.com/user-attachments/assets/19b5eeea-0cc9-498e-b09c-6040fb63d05d" />
+
 Additionally, you can choose to keep folder structure the same as the input directory in the output folder. Not available if a single tja file is selected.
-
-<img width="634" height="459" alt="Screenshot 2025-11-03 at 04 22 10" src="https://github.com/user-attachments/assets/a63fb019-1723-40d6-874b-34e9532d402b" />
-
 
 
 ### 3. Beatmap Data (optional) </ins>
@@ -56,12 +57,17 @@ Option to export the outputted files into a .osz file. Useful for if you want to
 Bonus options to copy audio into .osz, or keep the output of osu files in the output folder.
 
 (This option is disabled if you selected a single tja file to convert)
+
 <img width="589" height="63" alt="Screenshot 2025-11-03 at 04 31 04" src="https://github.com/user-attachments/assets/9e1fca01-548e-4220-80d3-2e077155b70e" />
 
 #### <ins>Branch</ins>
-Select which branch you want to be converted. If selected multiple branches, then each branch will be exported as an individual osu file. Only applicable for branched charts (if not branched, this option is ignored)
+Select which branch you want to be converted. If selected multiple branches, then each branch will be exported as an individual osu file. 
+
+Only applicable for branched charts (if not branched, this option is ignored)
 
 <img width="438" height="37" alt="Screenshot 2025-11-03 at 04 26 32" src="https://github.com/user-attachments/assets/c32b26c8-7c38-4590-bf8f-a07386c4802d" />
 
 ### 5. Convert
 After picking all your options, simply click Convert and your osu file will be in the output folder!
+
+<img width="773" height="171" alt="Screenshot 2025-11-03 at 04 39 41" src="https://github.com/user-attachments/assets/68ec380b-b599-4d90-ab03-6c28b95a6978" />
