@@ -88,7 +88,7 @@ class App(ttk.Frame):
         super().__init__(master, padding=12)
         self.master.title("tja2osu GUI")
         try:
-            self.master.tk.call("tk", "scaling", 1.2)  
+            self.master.tk.call("tk", "scaling", 1.2)  # nicer on macOS
         except Exception:
             pass
 
@@ -96,10 +96,11 @@ class App(ttk.Frame):
         self.input_path = tk.StringVar()
         self.output_path = tk.StringVar()
         self.keep_structure = tk.BooleanVar(value=True)
-        self.copy_audio_fs = tk.BooleanVar(value=False) 
+        self.copy_audio_fs = tk.BooleanVar(value=False)  # copy audio into folders
+
         self.export_osz = tk.BooleanVar(value=False)
-        self.copy_audio = tk.BooleanVar(value=True)   
-        self.keep_osu   = tk.BooleanVar(value=False) 
+        self.copy_audio = tk.BooleanVar(value=True)   # default ON (for .osz)
+        self.keep_osu   = tk.BooleanVar(value=False)  # default OFF
 
         self.skip_double = tk.BooleanVar(value=True)
         self.artist = tk.StringVar()
@@ -179,7 +180,10 @@ class App(ttk.Frame):
 
         box_opts = ttk.Frame(frm_filters); box_opts.grid(row=2, column=0, columnspan=4, sticky="ew", padx=6, pady=(0,6))
         ttk.Checkbutton(box_opts, text="Skip Double", variable=self.skip_double).grid(row=0, column=0, padx=(0,12), sticky="w")
-        ttk.Checkbutton(box_opts, text="Export as .osz", variable=self.export_osz, command=self._toggle_export_children).grid(row=0, column=1, padx=12, sticky="w")
+        # store the Export as .osz checkbox so we can enable/disable it
+        self.chk_export_osz = ttk.Checkbutton(box_opts, text="Export as .osz",
+                                              variable=self.export_osz, command=self._toggle_export_children)
+        self.chk_export_osz.grid(row=0, column=1, padx=12, sticky="w")
 
         # Children options under Export as .osz
         box_export_children = ttk.Frame(frm_filters)
@@ -220,17 +224,24 @@ class App(ttk.Frame):
         def update_state(*_):
             ip = self.input_path.get().strip()
             is_dir = os.path.isdir(ip)
+
+            # Keep/Copy-Audio-for-folders are only meaningful for directory inputs
             self.chk_keep.state(["!disabled"] if is_dir else ["disabled"])
             self.chk_copy_audio_fs.state(["!disabled"] if is_dir else ["disabled"])
-            if is_dir: 
+
+            # NEW: disable .osz export when input is a single .tja file
+            if is_dir:
                 self.chk_export_osz.state(["!disabled"])
             else:
+                # turn off export_osz and disable the checkbox + its children
                 self.export_osz.set(False)
                 self.chk_export_osz.state(["disabled"])
-                self._toggle_export_children()  
+                self._toggle_export_children()  # will disable child options
+
             can = bool(self.input_path.get().strip()) and bool(self.output_path.get().strip())
             if can: self.btn_convert.state(["!disabled"])
             else:   self.btn_convert.state(["disabled"])
+
         self.input_path.trace_add("write", update_state)
         self.output_path.trace_add("write", update_state)
         update_state()
